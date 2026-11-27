@@ -1,0 +1,575 @@
+:root {
+    --warna-utama: #2447a8;
+    --warna-utama-gelap: #183477;
+    --warna-latar: #f3f6fc;
+    --warna-teks: #17233c;
+    --warna-teks-redup: #6b7890;
+    --warna-garis: #e4eaf3;
+    --bayangan: 0 12px 32px rgba(24, 48, 92, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--warna-latar);
+    color: var(--warna-teks);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Navigasi samping */
+.sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    min-height: 100vh;
+    padding: 32px 20px;
+    background: linear-gradient(165deg, #1c3474 0%, #2447a8 55%, #315bc5 100%);
+    box-shadow: 8px 0 28px rgba(28, 52, 116, 0.12);
+}
+
+.sidebar h1 {
+    margin: 4px 10px 34px;
+    color: #ffffff;
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    margin: 5px 0;
+    padding: 12px 15px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.83);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.sidebar a:hover,
+.sidebar a:focus-visible {
+    transform: translateX(3px);
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    outline: none;
+}
+
+.sidebar a:last-child {
+    margin-top: auto;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.sidebar a:last-child:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Bagian utama halaman */
+.content {
+    min-height: 100vh;
+    margin-left: 260px;
+    padding: 42px clamp(22px, 4vw, 58px);
+}
+
+.content h2 {
+    margin: 0 0 8px;
+    padding: 0;
+    color: #172b55;
+    font-size: clamp(23px, 3vw, 30px);
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.content > p {
+    margin: 0;
+    padding: 0;
+    color: var(--warna-teks-redup);
+    font-size: 15px;
+}
+
+/* Daftar dokumen */
+.list_dokumen {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.list_dokumen .kotak {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px 22px;
+    width: 100%;
+    min-width: 0;
+    padding: 20px 22px;
+    border: 1px solid var(--warna-garis);
+    border-radius: 17px;
+    background: #ffffff;
+    box-shadow: var(--bayangan);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.list_dokumen .kotak:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px rgba(24, 48, 92, 0.12);
+}
+
+.nama_file {
+    flex: 1 1 220px;
+    min-width: 150px;
+    overflow-wrap: anywhere;
+    color: #24395f;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.tanggal {
+    flex: 0 1 165px;
+    color: var(--warna-teks-redup);
+    font-size: 13px;
+}
+
+.status,
+.statu {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 92px;
+    padding: 6px 12px;
+    border: 1px solid #dce8ff;
+    border-radius: 999px;
+    background: #edf3ff;
+    color: #2854ad;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.tombol {
+    display: flex;
+    flex: 1 1 100%;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    padding-top: 13px;
+    border-top: 1px solid #edf1f7;
+}
+
+.content a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    margin: 0;
+    padding: 8px 14px;
+    border: 1px solid var(--warna-utama);
+    border-radius: 9px;
+    background: var(--warna-utama);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.35;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.content a:hover {
+    transform: translateY(-1px);
+    border-color: var(--warna-utama-gelap);
+    background: var(--warna-utama-gelap);
+    color: #ffffff;
+}
+
+.content a:focus-visible,
+.content button:focus-visible,
+.content input:focus-visible {
+    outline: 3px solid rgba(49, 91, 197, 0.22);
+    outline-offset: 2px;
+}
+
+/* Tombol berdasarkan tujuan link */
+.tombol a[href*="hapus"],
+.tombol a[href*="ditolak"] {
+    border-color: #f0caca;
+    background: #fff1f1;
+    color: #b83232;
+}
+
+.tombol a[href*="hapus"]:hover,
+.tombol a[href*="ditolak"]:hover {
+    border-color: #cf4545;
+    background: #cf4545;
+    color: #ffffff;
+}
+
+.tombol a[href*="disetujui"] {
+    border-color: #c7ead7;
+    background: #eaf8f0;
+    color: #197346;
+}
+
+.tombol a[href*="disetujui"]:hover {
+    border-color: #197346;
+    background: #197346;
+    color: #ffffff;
+}
+
+/* Form upload */
+.content .pilih {
+    max-width: 680px;
+    margin-top: 24px;
+    padding: 28px;
+    border: 1px dashed #b8c8e5;
+    border-radius: 17px;
+    background: #ffffff;
+    box-shadow: var(--bayangan);
+}
+
+.content form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.content form div {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.content input[type="file"] {
+    flex: 1 1 250px;
+    max-width: 100%;
+    padding: 10px;
+    border: 1px solid var(--warna-garis);
+    border-radius: 9px;
+    background: #f8faff;
+    color: var(--warna-teks-redup);
+    font: inherit;
+    font-size: 13px;
+}
+
+.content button[type="submit"],
+.content input[type="submit"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    margin: 0;
+    padding: 10px 20px;
+    border: 1px solid var(--warna-utama);
+    border-radius: 9px;
+    background: var(--warna-utama);
+    color: #ffffff;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.content button[type="submit"]:hover,
+.content input[type="submit"]:hover {
+    transform: translateY(-1px);
+    background: var(--warna-utama-gelap);
+}
+
+/* Pesan berhasil atau kesalahan */
+#error {
+    max-width: 680px;
+    margin-bottom: 20px;
+    padding: 13px 17px;
+    border: 1px solid #f2d2d2;
+    border-radius: 11px;
+    background: #fff4f4;
+    color: #a83232;
+}
+
+#error p {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+}
+
+/* Tampilan layar tablet dan ponsel */
+@media (max-width: 760px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .sidebar h1 {
+        margin: 0 4px 12px;
+        font-size: 23px;
+    }
+
+    .sidebar a {
+        min-height: 42px;
+        margin: 3px 0;
+        padding: 9px 12px;
+    }
+
+    .sidebar a:last-child {
+        margin-top: 3px;
+    }
+
+    .content {
+        min-height: auto;
+        margin-left: 0;
+        padding: 26px 18px;
+    }
+
+    .list_dokumen .kotak {
+        align-items: flex-start;
+        gap: 10px 14px;
+        padding: 17px;
+    }
+
+    .nama_file {
+        flex-basis: 100%;
+    }
+
+    .tanggal {
+        flex-basis: auto;
+    }
+
+    .tombol {
+        gap: 8px;
+    }
+
+    .content .pilih {
+        padding: 19px;
+    }
+}
+
+@media (max-width: 420px) {
+    .content {
+        padding: 22px 13px;
+    }
+
+    .tombol a {
+        flex: 1 1 auto;
+    }
+
+    .content form {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .content button[type="submit"] {
+        width: 100%;
+    }
+}
+
+/* ================================
+   Halaman Login dan Daftar
+   Menggunakan class .login yang sudah ada di HTML
+================================ */
+body:has(.login) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 28px 18px;
+    background:
+        radial-gradient(circle at 12% 12%, rgba(73, 116, 213, 0.13), transparent 32%),
+        radial-gradient(circle at 88% 88%, rgba(73, 116, 213, 0.10), transparent 30%),
+        linear-gradient(135deg, #edf2ff 0%, #f7f9fe 52%, #eaf0ff 100%);
+}
+
+.login {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    width: 100%;
+    padding: 38px 36px;
+    border: 1px solid rgba(218, 227, 244, 0.95);
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 20px 55px rgba(29, 54, 111, 0.13);
+}
+
+.login form::before {
+    content: "Masuk ke Akun PPB";
+    display: block;
+    margin-bottom: 2px;
+    color: #1d3474;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.login form:has(input[name="username"])::before {
+    content: "Buat Akun PPB";
+}
+
+.login form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin: 0;
+    padding: 0;
+}
+
+.login form > div > p {
+    margin: 0;
+    padding: 0;
+    color: #34466c;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.login form input[type="email"],
+.login form input[type="text"],
+.login form input[type="password"] {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 15px;
+    border: 1px solid #dce4f2;
+    border-radius: 11px;
+    outline: none;
+    background: #f8faff;
+    color: #17233c;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login form input[type="email"]::placeholder,
+.login form input[type="text"]::placeholder,
+.login form input[type="password"]::placeholder {
+    color: #9aa6ba;
+}
+
+.login form input[type="email"]:focus,
+.login form input[type="text"]:focus,
+.login form input[type="password"]:focus {
+    border-color: #315bc5;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(49, 91, 197, 0.10);
+}
+
+.login form input[type="submit"] {
+    width: 100%;
+    min-height: 48px;
+    margin: 2px 0 0;
+    padding: 12px 18px;
+    border: 1px solid #2447a8;
+    border-radius: 11px;
+    background: linear-gradient(135deg, #315bc5, #2447a8);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 750;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 7px 16px rgba(36, 71, 168, 0.20);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.login form input[type="submit"]:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #2447a8, #183477);
+    box-shadow: 0 10px 20px rgba(36, 71, 168, 0.25);
+}
+
+.login form input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+.login form > div:last-child {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: -3px;
+    text-align: center;
+}
+
+.login form > div:last-child p {
+    margin: 0;
+    color: #748099;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.login form > div:last-child a {
+    color: #2447a8;
+    font-size: 13px;
+    font-weight: 750;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.login form > div:last-child a:hover {
+    color: #183477;
+    text-decoration: underline;
+}
+
+body:has(.login) #error {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 0 14px;
+    padding: 12px 16px;
+    border: 1px solid #f0caca;
+    border-radius: 11px;
+    background: #fff1f1;
+    color: #a83232;
+}
+
+body:has(.login) #error p {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+}
+
+@media (max-width: 480px) {
+    body:has(.login) {
+        padding: 20px 14px;
+    }
+
+    .login form {
+        gap: 18px;
+        padding: 29px 22px;
+        border-radius: 18px;
+    }
+
+    .login form::before {
+        font-size: 22px;
+    }
+}
+
